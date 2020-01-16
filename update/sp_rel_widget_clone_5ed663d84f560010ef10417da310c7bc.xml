@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_rel_widget_clone">
+    <sp_rel_widget_clone action="INSERT_OR_UPDATE">
+        <child display_value="New Simran Widget">9ad663d84f560010ef10417da310c7ba</child>
+        <cloned>2020-01-08 18:20:29</cloned>
+        <last_validated>2020-01-08 18:20:29</last_validated>
+        <parent display_value="Variable Currency">e81a1f4047211200ba13a5554ee490fc</parent>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;sp_widget&gt;&lt;category&gt;standard&lt;/category&gt;&lt;client_script&gt;&lt;![CDATA[function ($scope) {
+
+	$scope.$watch('page.field.value', function(nv, ov) {
+		$scope.error = false;
+		if (!nv)
+			return; 
+
+		$scope.error = isNaN($scope.page.field.value);
+	})
+}]]&gt;&lt;/client_script&gt;&lt;controller_as&gt;c&lt;/controller_as&gt;&lt;css&gt;input.currency {
+  text-align: right; 
+}&lt;/css&gt;&lt;data_table&gt;sp_instance&lt;/data_table&gt;&lt;demo_data/&gt;&lt;description/&gt;&lt;docs/&gt;&lt;field_list/&gt;&lt;has_preview&gt;false&lt;/has_preview&gt;&lt;id&gt;widget-variable-currency&lt;/id&gt;&lt;internal&gt;false&lt;/internal&gt;&lt;link/&gt;&lt;name&gt;Variable Currency&lt;/name&gt;&lt;option_schema/&gt;&lt;public&gt;false&lt;/public&gt;&lt;roles/&gt;&lt;script&gt;&lt;![CDATA[(function() {
+	var csym = {};
+	csym.usd = {symbol: "$", location: "prefix"};
+	csym.cad = {symbol: "$", location: "prefix"};
+	csym.mxn = {symbol: "$", location: "prefix"};
+	csym.eur = {symbol: "€", location: "prefix"};
+	csym.gbp = {symbol: "£", location: "prefix"};
+	
+	var locale = GlideLocale.get();
+	var cc = data.symbol = locale.getCurrencyCode();
+	cc = cc.toLowerCase();
+	data.cc = cc;
+	locale.getCurrencyCode();
+	if (csym[cc]) 
+		data.symbol = csym[cc].symbol;
+})();]]&gt;&lt;/script&gt;&lt;servicenow&gt;true&lt;/servicenow&gt;&lt;sys_class_name&gt;sp_widget&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2016-02-08 19:07:20&lt;/sys_created_on&gt;&lt;sys_id&gt;e81a1f4047211200ba13a5554ee490fc&lt;/sys_id&gt;&lt;sys_mod_count&gt;33&lt;/sys_mod_count&gt;&lt;sys_name&gt;Variable Currency&lt;/sys_name&gt;&lt;sys_package display_value="Service Portal - Core" source="com.glide.service-portal"&gt;6f4b82524f050010ef10417da310c7e9&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_widget_e81a1f4047211200ba13a5554ee490fc&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2017-08-24 19:18:08&lt;/sys_updated_on&gt;&lt;template&gt;&lt;![CDATA[&lt;div class="row"&gt;
+  &lt;div class="col-md-2"&gt;
+    &lt;span class="input-group"&gt;
+      &lt;span class="input-group-addon"&gt;{{data.symbol}}&lt;/span&gt;
+      &lt;input type="text" ng-model="page.fieldValue" ng-model-options="{getterSetter: true}" class="form-control currency" /&gt;
+    &lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="col-md-10"&gt;
+    &lt;div ng-if="error" class="alert alert-danger" role="alert"&gt;${Has to be a number}&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;]]&gt;&lt;/template&gt;&lt;/sp_widget&gt;</payload>
+        <sys_class_name>sp_rel_widget_clone</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-01-08 18:46:48</sys_created_on>
+        <sys_id>5ed663d84f560010ef10417da310c7bc</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>9ad663d84f560010ef10417da310c7ba</sys_name>
+        <sys_package display_value="CreateNotes" source="x_snc_createnotes">df5fd9a5090232007f44e1046c8ff69f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CreateNotes">df5fd9a5090232007f44e1046c8ff69f</sys_scope>
+        <sys_update_name>sp_rel_widget_clone_5ed663d84f560010ef10417da310c7bc</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-01-08 18:46:48</sys_updated_on>
+    </sp_rel_widget_clone>
+</record_update>

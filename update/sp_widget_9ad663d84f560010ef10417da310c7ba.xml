@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function ($scope) {
+
+	$scope.$watch('page.field.value', function(nv, ov) {
+		$scope.error = false;
+		if (!nv)
+			return; 
+
+		$scope.error = isNaN($scope.page.field.value);
+	})
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>input.currency {
+  text-align: right; 
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>new_simran_widget</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>New Simran Widget</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+	var csym = {};
+	csym.usd = {symbol: "$", location: "prefix"};
+	csym.cad = {symbol: "$", location: "prefix"};
+	csym.mxn = {symbol: "$", location: "prefix"};
+	csym.eur = {symbol: "€", location: "prefix"};
+	csym.gbp = {symbol: "£", location: "prefix"};
+	
+	var locale = GlideLocale.get();
+	var cc = data.symbol = locale.getCurrencyCode();
+	cc = cc.toLowerCase();
+	data.cc = cc;
+	locale.getCurrencyCode();
+	if (csym[cc]) 
+		data.symbol = csym[cc].symbol;
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-01-08 18:46:48</sys_created_on>
+        <sys_id>9ad663d84f560010ef10417da310c7ba</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>New Simran Widget</sys_name>
+        <sys_package display_value="CreateNotes" source="x_snc_createnotes">df5fd9a5090232007f44e1046c8ff69f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CreateNotes">df5fd9a5090232007f44e1046c8ff69f</sys_scope>
+        <sys_update_name>sp_widget_9ad663d84f560010ef10417da310c7ba</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-01-08 18:46:48</sys_updated_on>
+        <template><![CDATA[<div class="row">
+  <div class="col-md-2">
+    <span class="input-group">
+      <span class="input-group-addon">{{data.symbol}}</span>
+      <input type="text" ng-model="page.fieldValue" ng-model-options="{getterSetter: true}" class="form-control currency" />
+    </span>
+  </div>
+  <div class="col-md-10">
+    <div ng-if="error" class="alert alert-danger" role="alert">${Has to be a number}</div>
+  </div>
+</div>]]></template>
+    </sp_widget>
+</record_update>
